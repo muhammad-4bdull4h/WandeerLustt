@@ -2,9 +2,9 @@
   "engines":{
     "node":"20.13.1"
   },
-  "name": "mongo3",
+  "name": "wandeerlustt",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "build": "npm install"

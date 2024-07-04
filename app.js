@@ -70,7 +70,11 @@ main()
   .catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect(dbUrl);
+  try {
+    await mongoose.connect(dbUrl);
+  } catch (err) {
+    console.log(err, "mongoerror");
+  }
 }
 
 app.use((req, res, next) => {

@@ -1,6 +1,6 @@
 {
   "engines":{
-    "node":"20.13.1"
+    "node":"20.x"
   },
   "name": "wandeerlustt",
   "version": "1.0.0",

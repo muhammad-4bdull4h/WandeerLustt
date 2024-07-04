@@ -1,0 +1,45 @@
+<% if(success && success.length){ %>
+<div
+  id="success-flash"
+  class="alert flash alert-success alert-dismissible fade show"
+  role="alert"
+>
+  <%= success %>
+  <button
+    type="button"
+    class="btn-close"
+    data-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+<script>
+  setTimeout(function () {
+    let successAlert = document.getElementById("success-flash");
+    if (successAlert) {
+      successAlert.remove();
+    }
+  }, 5000);
+</script>
+<% } %> <% if(failure && failure.length){ %>
+<div
+  id="failure-flash"
+  class="alert flash alert-danger alert-dismissible fade show"
+  role="alert"
+>
+  <%= failure %>
+  <button
+    type="button"
+    class="btn-close"
+    data-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+<script>
+  setTimeout(function () {
+    let failureAlert = document.getElementById("failure-flash");
+    if (failureAlert) {
+      failureAlert.remove();
+    }
+  }, 5000);
+</script>
+<% } %>

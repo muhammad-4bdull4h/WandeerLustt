@@ -1,0 +1,83 @@
+<% layout('/layouts/boilerplate') -%>
+<body>
+
+  <!-- <h3 class="text-center fw-bolder my-5">All listings</h3> -->
+  <!-- <form method="get" action="/listings/new">
+      <button type="submit" class="btn btn-primary">Create new listing</button>
+    </form> -->
+  <div class="nav2 d-flex flex-wrap justify-content-around mb-4">
+    <div class="mx-1 text-center my-2 <%= category === 'Trending' ? 'activeact' : ''%>">
+      <a class="text-decoration-none text-dark" href="/">
+        <div><i class="bi bi-fire"></i></div>
+        <p>Trending</p>
+      </a>
+    </div>
+    <div
+      class="mx-1 text-center my-2 <%= category === 'apartment' ? 'activeact' : ''%>"
+    >
+      <a class="text-decoration-none text-dark" href="/category/apartment">
+        <i class="bi bi-building-fill"></i>
+        <p>apartment</p>
+      </a>
+    </div>
+    <div
+      class="mx-1 text-center my-2 <%= category === 'Pent_house' ? 'activeact' : ''%>"
+    >
+      <a class="text-decoration-none text-dark" href="/category/Pent_house">
+        <i class="bi bi-buildings"></i>
+        <p>Pent house</p>
+      </a>
+    </div>
+    <div class="mx-1 text-center my-2 <%= category === 'bungalow' ? 'activeact' : ''%>">
+      <a class="text-decoration-none text-dark" href="/category/bungalow">
+        <i class="bi bi-house-fill"></i>
+        <p>bungalow</p>
+      </a>
+    </div>
+    <div
+      class="mx-1 text-center my-2 <%= category === 'Hotel_rooms' ? 'activeact' : ''%>"
+    >
+      <a class="text-decoration-none text-dark" href="/category/Hotel_rooms">
+        <i class="bi bi-shop"></i>
+        <p>Hotel rooms</p>
+      </a>
+    </div>
+    <div
+      class="mx-1 text-center my-2 <%= category === 'Wild_compartments' ? 'activeact' : ''%>"
+    >
+      <a
+        class="text-decoration-none text-dark"
+        href="/category/Wild_compartments"
+      >
+        <i class="bi bi-tree"></i>
+        <p>Wild compartments</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <% for(let listing of allListings) { %>
+    <div class="col-lg-3 col-md-4 col-sm-6 justify-content-center d-flex">
+      <a href="/listings/<%= listing._id %>" class="listing-link">
+        <div class="card mb-3" style="width: 18rem">
+          <img
+            src="<%= listing.image.url %>"
+            class="card-img-top img-fluid"
+            alt="..."
+          />
+          <div class="card-img-overlay"></div>
+          <div class="card-body">
+            <h5 class="card-title fw-bold"><%= listing.title %></h5>
+            <p class="card-text">
+              <%= listing.description.substring(0,70) %>....
+            </p>
+            <p class="card-text fs-5 fw-bold">
+              <%= listing.price.toLocaleString('en-IN') %>PKR / night
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <% } %>
+  </div>
+</body>

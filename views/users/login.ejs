@@ -1,0 +1,107 @@
+<% layout('/layouts/boilerplate') -%>
+<body>
+  <section class="bg-light p-3 p-md-4 p-xl-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-xxl-11">
+          <div class="card border-light-subtle shadow-sm">
+            <div class="row g-0">
+              <div class="col-12 col-md-6">
+                <img
+                  class="img-fluid rounded-start w-100 h-100 object-fit-cover"
+                  loading="lazy"
+                  src="/images/OIG3.png"
+                  alt="Welcome back you've been missed!"
+                />
+              </div>
+              <div
+                class="col-12 col-md-6 d-flex align-items-center justify-content-center"
+              >
+                <div class="col-12 col-lg-11 col-xl-10">
+                  <div class="card-body p-3 p-md-4 p-xl-5">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="mb-2">
+                          <h2 class="h4 text-center">
+                            <b>Login to WandeerLustt</b>
+                          </h2>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="text-center">
+                          <b> Enter your account details to Login</b>
+                        </p>
+                        <%- include("../includes/flasherr.ejs") %>
+                      </div>
+                    </div>
+                    <form
+                      action="/login"
+                      method="post"
+                      novalidate
+                      class="needs-validation"
+                    >
+                   
+                      <div class="row gy-3 overflow-hidden">
+                        <div class="col-12">
+                          <div class="form-floating mb-3">
+                            <input
+                              type="text"
+                              class="form-control"
+                              name="username"
+                              id="Username"
+                              placeholder="Username"
+                              required
+                            />
+                            <label for="Username" class="form-label"
+                              >User Name</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <div class="form-floating mb-3">
+                            <input
+                              type="password"
+                              class="form-control"
+                              name="password"
+                              id="password"
+                              value=""
+                              required
+                            />
+                            <label for="password" class="form-label"
+                              >Password</label
+                            >
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <div class="d-grid">
+                            <button class="btn btn-dark btn-lg" type="submit">
+                              log in
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                    <div class="row">
+                      <div class="col-12">
+                        <p class="mb-0 mt-5 text-secondary text-center">
+                          don't have an account?
+                          <a
+                            href="/signup"
+                            class="link-primary text-decoration-none"
+                            >Sign up</a
+                          >
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>

@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand" href="/listings"
+    ><img class="img-fluid" src="/images/OIG3.png" alt=""
+  /></a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="/listings">Explore</a>
+    </div>
+    <div class="navbar-nav ms-auto">
+      <form class="d-flex " role="search">
+        <input
+          class="form-control me-2 srch-bar"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn srch-btn" type="submit"><i class="bi bi-search"></i></button>
+      </form>
+    </div>
+    <div class="navbar-nav mt-2 ms-auto">
+      <div class="nav-item me-2">
+        <a class="nav-item nav-link" href="/listings/new">Add New Listing</a>
+      </div>
+      <div class="nav-item align-items-center d-flex">
+        <div class="sign-login-lines">
+          <% if(!currUser){ %>
+          <a class="text-decoration-none text-dark" href="/login"
+            ><b>login</b></a
+          >
+          <% }else{%><a class="text-decoration-none text-dark" href="/logout"
+            ><b>logout</b></a
+          ><% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

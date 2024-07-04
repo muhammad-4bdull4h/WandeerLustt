@@ -1,0 +1,112 @@
+nav {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding-left: 26px !important;
+}
+
+.nav2 {
+    box-shadow: 3px 1px #ececec;
+}
+
+.srch-bar {
+    border-radius: 15px !important;
+
+}
+
+.srch-btn {
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 15px;
+
+}
+
+.main-container {
+    min-height: calc(100vh - (56px + 20vh));
+}
+
+.f-info-links a {
+    text-decoration: none;
+    color: black;
+}
+
+.f-info-socials i {
+    font-size: 1.2rem;
+    margin: 0 0 0 1rem;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+.f-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 20vh;
+    background-color: #eeee;
+}
+
+.card {
+    border: none !important;
+    width: 100% !important;
+}
+
+.card-img-top {
+    border-radius: 1rem;
+    height: 288px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 9px 0 0 0;
+}
+
+.listing-link {
+    text-decoration: none;
+    width: 100%;
+}
+
+.card-img-overlay {
+    opacity: 0;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.3;
+    background-color: aliceblue;
+}
+
+.del-edi {
+    margin-bottom: 12px;
+}
+
+.del-edi form button {
+    margin-right: 12px;
+}
+
+.navbar-brand img {
+    height: 85px;
+}
+
+.rev-logo {
+    height: 35px;
+    width: 35px;
+    /* background-color: gray; */
+}
+
+.rev-logo-img {
+    height: 35px;
+    width: 35px;
+}
+
+.flash {
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    left: 0;
+}
+
+.activeact {
+    border: 1px solid #dee2e6;
+    border-bottom: 0;
+    border-radius: 15px 14px 0 0;
+}

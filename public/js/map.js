@@ -6,7 +6,6 @@ const map = new maptilersdk.Map({
   center: coordinates, // starting position [lng, lat]
   zoom: 9, // starting zoom
 });
-console.log(coordinates);
 const marker = new maptilersdk.Marker()
   .setLngLat(coordinates)
   .setPopup(

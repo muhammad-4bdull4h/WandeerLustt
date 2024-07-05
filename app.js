@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const app = express();
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
@@ -12,12 +13,13 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.models.js");
 
-// routes requiring
+//routes requiring
 const listingsRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
-const categoryRouter = require("./routes/categories.js");
+const categoryRouter = require("./routes/catrgories.js");
 
+const mongoUrl = "mongodb://127.0.0.1:27017/wanderlust";
 const dbUrl = process.env.ATLASDB_URL;
 
 const store = MongoStore.create({
@@ -44,8 +46,6 @@ const sessionOptions = {
   },
 };
 
-const app = express();
-
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
@@ -63,9 +63,15 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-mongoose.connect(dbUrl).then(() => {
-  console.log("connected to database");
-}).catch((err) => console.log(err));
+main()
+  .then(() => {
+    console.log("connected");
+  })
+  .catch((err) => console.log(err));
+
+async function main() {
+  await mongoose.connect(dbUrl);
+}
 
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
@@ -82,22 +88,24 @@ app.get("/", (req, res) => {
 // router route for listings
 app.use("/listings", listingsRouter);
 
-// router route for reviews
-// app.use("/listings/:id/review", reviewRouter);
+//router route for reviews
+app.use("/listings/:id/review", reviewRouter);
 
-// user route for signing up user
-// app.use("/", userRouter);
+//user route for signing up user
+app.use("/", userRouter);
 
-// categories finding route
-// app.use("/category", categoryRouter);
+//categories finding route
+app.use("/category", categoryRouter);
 
 app.all("*", (req, res, next) => {
   next(new ExpressError(404, "page not found"));
 });
 
 app.use((err, req, res, next) => {
-  const { statusCode = 500, message = "something went wrong" } = err;
+  let { statusCode = 500, message = "something went wrong" } = err;
   res.status(statusCode).render("error.ejs", { message });
 });
 
-module.exports = app;
+app.listen(8080, () => {
+  console.log("listening");
+});

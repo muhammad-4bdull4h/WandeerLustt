@@ -15,6 +15,23 @@ let clouDelete = async (public_id) => {
 };
 
 module.exports.index = async (req, res) => {
+  let query = req.query.q;
+  if (query) {
+    let allListings = await listing.find({
+      $or: [
+        { title: { $regex: query, $options: "i" } }, // case-insensitive search
+        { description: { $regex: query, $options: "i" } },
+        { country: { $regex: query, $options: "i" } },
+        { location: { $regex: query, $options: "i" } },
+        { category: { $regex: query, $options: "i" } },
+      ],
+    });
+
+    return res.render("listings/index.ejs", {
+      allListings,
+      query,
+    });
+  }
   let allListings = await listing.find({});
   res.render("listings/index.ejs", { allListings, category: "Trending" });
 };

@@ -51,14 +51,30 @@
               >
               <div class="invalid-feedback">Enter a valid Description</div>
             </div>
-            <div class="mt-4 col-md-6">
-              <label for="categorySelect">Select a category:  </label>
-              <select name="listing[category]" class=" mx-2 btn btn-light " id="categorySelect">
-                  <option class="dropdownitem" value="apartment">apartment</option>
-                  <option class="dropdownitem" value="Pent house">Pent house</option>
-                  <option class="dropdownitem" value="bungalow">bungalow </option>
-                  <option class="dropdownitem" value="Hotel rooms">Hotel rooms</option>
-                  <option class="dropdownitem" value="Wild compartments">Wild compartments</option>
+            <div class="mt-4 col-md-6 select-box">
+              <label for="categorySelect">Select a category: </label>
+              <select
+                name="listing[category]"
+                class="mx-2 btn btn-light"
+                id="categorySelect"
+              >
+                <option class="dropdownitem" value="apartment">
+                  apartment
+                </option>
+                <option class="dropdownitem" value="Pent house">
+                  Pent house
+                </option>
+                <option class="dropdownitem" value="bungalow">bungalow</option>
+                <option class="dropdownitem" value="Hotel rooms">
+                  Hotel rooms
+                </option>
+                <option class="dropdownitem" value="Wild compartments">
+                  Wild compartments
+                </option>
+                <option class="dropdownitem" value="Farm house">
+                  Farm house
+                </option>
+                <option class="dropdownitem" value="cave">cave</option>
               </select>
             </div>
             <div class="mb-3 col-md-6">
@@ -96,7 +112,8 @@
                     src="<%= foundListing.image.url %>"
                     alt=""
                   />
-                </div><br>
+                </div>
+                <br />
                 <div class="col-12 mt-3">
                   <label for="" class="form-label">Upload new image</label>
                   <input
@@ -104,8 +121,8 @@
                     type="file"
                     class="form-control"
                     id=""
-                    />
-                  </div>
+                  />
+                </div>
               </div>
             </div>
             <button type="submit" class="btn btn-dark">Submit</button>

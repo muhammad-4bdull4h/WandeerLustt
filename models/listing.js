@@ -21,6 +21,8 @@ const listingSchema = new Schema({
       "bungalow",
       "Hotel rooms",
       "Wild compartments",
+      "Farm house",
+      "cave",
     ],
     required: true,
   },
